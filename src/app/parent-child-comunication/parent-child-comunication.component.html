@@ -1,0 +1,9 @@
+<p>Parent-Child-comunication</p>
+<hr><hr><br>
+Parent Component
+<input type="text" [(ngModel)]="name">
+<br>
+Value from child component ==> {{valFromChild}}
+<hr>
+Child Component
+<app-child-component [fromPar]="name" (sendEvent)="valFromChild=$event"></app-child-component>

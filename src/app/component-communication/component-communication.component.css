@@ -1,0 +1,10 @@
+.divStyle{
+    display: grid;
+    grid-template-columns:6fr 6fr;
+    height: 100vh;
+}
+.comp{
+    border: 1px dotted black;
+    max-height: 50%;
+    padding: 5px;
+}

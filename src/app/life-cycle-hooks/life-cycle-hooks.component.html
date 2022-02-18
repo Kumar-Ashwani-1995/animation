@@ -1,0 +1,7 @@
+<p>Life-Cycle-Hooks </p>
+<hr>
+DEMO Component
+<br>
+<input type="text" #name>
+<button (click)="val=name.value">Send to child</button>
+<app-demo-component [value]="val"></app-demo-component>

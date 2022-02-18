@@ -1,0 +1,35 @@
+<p>Data-binding</p>
+<ul>
+    <li>  One way data binding
+        <ul>
+         <li>InterPolation</li>
+            value form interpolation using  braclets==> {{name}}
+         <hr>
+         <li>Property Binding</li>
+            <input [value]="name">
+         <hr>
+         <li>Event Binding</li>
+            <button (click)="name='new value from event binding'">Send value to TS file</button>
+         <hr>
+        </ul>
+    </li>
+    <hr><hr>
+    <li> Two way data binding
+        <ul>
+         <li>ngModel</li>
+         <input type="text" [(ngModel)]="name1">
+         2 way binding value ==> {{name1}}
+        </ul>
+    </li>
+    <hr><hr>
+    <li>
+        Template Refrence variable
+        <ul>
+            <input value="myName" #myValue>
+            {{myValue.value}}
+        </ul>
+        
+    </li>
+    <hr><hr>
+
+</ul>

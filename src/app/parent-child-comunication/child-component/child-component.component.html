@@ -1,0 +1,7 @@
+<p>child-component works!</p>
+
+This text is from Parent ==> {{fromPar}}
+<br>
+
+<input type="text" #valToSend>
+<button (click)="buttonClicked(valToSend.value)">Send value to parent</button>
