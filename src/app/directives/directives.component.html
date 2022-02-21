@@ -1,0 +1,65 @@
+<p>Directives</p>
+
+<ul>
+    <ul>Structural directives
+        <li>*ngIf</li>
+        <button (click)="value=!value">toggle Value </button>
+        <div style="display: inline;" *ngIf="value; then trueBlock else elseBlock">
+            The value is true
+        </div>
+        <ng-template  #trueBlock>
+            The value is true
+        </ng-template>
+        <ng-template  #elseBlock>
+            The value is false
+        </ng-template>
+            <hr>
+        <li>*ngIf with template outlet</li>
+        <button (click)="value=!value">toggle Value </button>
+            <div style="display: inline;" *ngTemplateOutlet="trueBlock; context:{text:'val'}">
+                
+            </div>
+            <ng-template  #trueBlock let-text="text">
+                The value is true {{text}}
+            </ng-template>
+            <hr>
+        <li>*ngFor</li>
+        <div *ngFor="let i of array,index as y" style="display: inline;">
+            <span> {{y}}==>pos {{i}} ||</span>
+        </div>
+        <hr>
+        <li>*ngFor and *ngIf in *ng-container</li>
+        <div *ngFor="let i of array,index as y" style="display: inline;">
+            <ng-container *ngIf="i%2">
+                <span> {{y}}==>pos {{i}} ||</span>
+            </ng-container>
+            
+        </div>
+        <hr>
+        <li>*ngSwitchcase</li>
+        <input type="text" [(ngModel)]="grade" >
+        <div [ngSwitch]="grade">
+            <span *ngSwitchCase="'A'">Grade is A</span>
+            <span *ngSwitchCase="'B'">Grade is B</span>
+            <span *ngSwitchCase="'C'">Grade is C</span>
+            <span *ngSwitchDefault>Grade is NA</span>
+
+        </div>
+    </ul>
+    <hr>
+    <li>Attribute directives</li>
+    <div [ngClass]="{valTrue:value,valFalse:!value}">
+        This will have dynamic Classes
+    </div>
+    <button (click)="value=!value">toggle Value </button>
+    <div [ngStyle]="{'color':value?'black':'green'}">
+        This will have Styles from ngStyle
+    </div>
+    <hr>
+    <li>Custom directives</li>
+    <div appRedblack>This tag has custom directive</div>
+    <hr>
+    <li>Component</li>
+    @component in TS file makes it a component directive and it make it a component
+    <hr>
+</ul>

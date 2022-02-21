@@ -15,6 +15,10 @@ import { LifeCycleHooksComponent } from './life-cycle-hooks/life-cycle-hooks.com
 import { DemoComponentComponent } from './life-cycle-hooks/demo-component/demo-component.component';
 import { ProjectDirective } from './life-cycle-hooks/project.directive';
 import { ContectProjectionComponent } from './life-cycle-hooks/demo-component/contect-projection/contect-projection.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { RedblackDirective } from './redblack.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ContectProjectionComponent } from './life-cycle-hooks/demo-component/co
     LifeCycleHooksComponent,
     DemoComponentComponent,
     ProjectDirective,
-    ContectProjectionComponent
+    ContectProjectionComponent,
+    DirectivesComponent,
+    RedblackDirective,
+    PipesComponent,
+    CurrencyConverterPipe
   ],
   imports: [
     BrowserModule,
