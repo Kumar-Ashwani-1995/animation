@@ -1,0 +1,39 @@
+<p>Reactive-form</p>
+
+Form:(name=admin and user not allowed and name=hacker not allowed in async call)
+<form [formGroup]="myReactiveForm" (ngSubmit)="submit()">
+    <div>
+        <label for="name">Name</label>
+        
+        <input type="text" id="name" name="name" formControlName="name">
+        <small *ngIf="myReactiveForm.get('name')?.invalid && myReactiveForm.get('name')?.touched"> Please enter you name and in right format</small>
+    </div>
+    <div formGroupName="otherDetails">
+        <div>
+            <label for="gender">Gender</label>
+            <input type="radio" id="gender" name="gender" formControlName="gender" value="male">Male
+            <input type="radio" id="gender" name="gender" formControlName="gender" value="female">Female
+            <small *ngIf="myReactiveForm.get('otherDetails.gender')?.invalid && myReactiveForm.get('otherDetails.gender')?.touched"> Please select a gender</small>
+        </div>
+        <div>
+            <select name="subject" id="subject" formControlName="subject">
+                <option value="maths">Maths</option>
+                <option value="science">Science</option>
+                <option value="english">English</option>
+            </select>
+            <small *ngIf="myReactiveForm.get('otherDetails.subject')?.invalid && myReactiveForm.get('otherDetails.subject')?.touched"> Please select a subject</small>
+        </div>
+    </div>
+    <div formArrayName="skills">
+        <label for="skills"></label>
+        <div id="skills" *ngFor="let skill of getControls();index as i">
+            <input type="text" formControlName="{{i}}">
+        </div>
+        <small style="display: block;" *ngIf="myReactiveForm.get('skills')?.invalid && myReactiveForm.get('skills')?.touched"> Please enter all skills added</small>
+
+        <button type="button" (click)="addSkills()">+ Add skills</button>
+    </div>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="setValue()">Set Value</button>
+    <button type="button" (click)="patchValue()">Patch Value</button>
+</form>

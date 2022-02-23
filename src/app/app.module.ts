@@ -19,6 +19,9 @@ import { DirectivesComponent } from './directives/directives.component';
 import { RedblackDirective } from './redblack.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
+import { SharedModuleModule } from './shared/shared-module.module';
+import { TemplateDrivenComponent } from './template-driven/template-driven.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +39,14 @@ import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
     DirectivesComponent,
     RedblackDirective,
     PipesComponent,
-    CurrencyConverterPipe
+    CurrencyConverterPipe,
+    TemplateDrivenComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    SharedModuleModule
   ],
   providers: [TransferService],
   bootstrap: [AppComponent]
