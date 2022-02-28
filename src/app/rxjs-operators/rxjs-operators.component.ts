@@ -12,8 +12,18 @@ export class RxjsOperatorsComponent implements OnInit,AfterViewInit {
   constructor(private http:HttpClient) { }
 
   ngAfterViewInit(): void {
-    let callMethod=fromEvent(this.myInput2.nativeElement,'keyup');
+    let callMethod=fromEvent(this.myInput.nativeElement,'keyup');
     callMethod.pipe(
+      // distinctUntilChanged(),
+      debounceTime(1000)
+    ).subscribe((data:any)=>{
+      console.log(data);
+       this.inputValue=data.target.value;
+    
+    })
+
+    let callMethod2=fromEvent(this.myInput2.nativeElement,'keyup');
+    callMethod2.pipe(
       // distinctUntilChanged(),
       debounceTime(1000),
       switchMap((data:any) => {
