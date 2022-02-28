@@ -1,0 +1,30 @@
+<p>Http-Request</p>
+<br>
+Get method to get 100 post :
+<button (click)="getPosts()">Get Post</button>&nbsp;
+<button (click)="postArray=[]"> clear Post</button>
+<br>
+<form (ngSubmit)="postData()" [formGroup]="postForm">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="job">Job:</label>
+        <input type="text" name="job" id="job" formControlName="job">
+    </div>
+    <button type="submit" >Post Data</button>
+</form>
+
+<div *ngIf="responseData">
+    <p>Name : {{responseData.name}}</p>
+    <p>Job : {{responseData.job}}         </p>
+    <p>ID : {{responseData.id}}   </p>
+</div>
+<!-- {{postArray | json}} -->
+<div style="border: 1px solid black;" *ngFor="let post of postArray">
+    <p>User Id : {{post.userId}}</p>
+    <p>Id : {{post.id}}         </p>
+    <p>Title : {{post.title}}   </p>
+    <p>Body : {{post.body}}     </p>
+</div>

@@ -1,0 +1,53 @@
+<p>Routing-Component </p>
+<br><br>
+<input type="text" [(ngModel)]="routerId">
+<button (click)="openRoute()">Open route {{routerId}}</button>
+<br>
+<br><br>
+
+<div style="display: flex; flex-direction: column; width: 230px; padding: 5px; border: 1px solid black;">
+  <div >
+    <label for="id">ID:</label>
+    <input style="float: right;" type="text" [(ngModel)]="routerId">
+  </div>
+  <div>
+    <label for="city">City:</label>
+    <input  style="float: right;" type="text" [(ngModel)]="routerCity">
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input  style="float: right;" type="text" [(ngModel)]="routerName">
+  </div>
+  <button style="margin-top: 5px;" (click)="openRoute2()">Open route {{routerId}} with queary param</button>
+</div>
+
+  <div style="margin-top: 5px;">
+    Activated Route : 
+    <button (click)="login()">{{loggedIn?"log Out":"Login"}}</button>&nbsp;
+    <a routerLink="guard"> Guarded Link</a>
+  </div>
+  <div>
+    <ul>
+      <li>CanActivateChild : can Activate its child Component</li>
+      <li>CanDeactivate : cant leave the route</li>
+      <li>CanLoad : used for the lazy loaded route</li>
+    </ul>
+  </div>
+  
+<router-outlet></router-outlet>
+<hr>
+<h3>Route to different pages:</h3>
+<nav style="display: flex; flex-direction: column;">
+    <a routerLink="../" >Data Binding</a> &nbsp;
+    <a routerLink="../PCcommunication" >Parent-child communication</a> &nbsp;
+    <a routerLink="../CompCommunication" >Component Communication</a> &nbsp;
+    <a routerLink="../LifeCycleHooks" >Life Cycle Hooks and ng-content</a> &nbsp;
+    <a routerLink="../Directives" >Directives</a> &nbsp;
+    <a routerLink="../Pipes" >Pipes</a> &nbsp;
+    <a routerLink="../lazy" >Lazy & shared Module</a> &nbsp;
+    <a routerLink="../templateDriven" >Template Driven Form</a> &nbsp;
+    <a routerLink="../reactiveForm" >Reactive-Form</a> &nbsp;
+    <a routerLink="../route" >Routing component</a> &nbsp;
+  
+    
+  </nav>

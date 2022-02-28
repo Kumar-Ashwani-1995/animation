@@ -1,0 +1,22 @@
+<p>RXJS-Operators </p>
+
+<button (click)="mapMethod()">Map Method</button>
+<hr>
+<label for="debounce">debounce Input : </label>
+<input   id="debounce" type="text" #debounceInput>
+<strong> {{inputValue}}</strong>
+<br>
+<label for="debounce">Switch map Input : </label>
+<input   id="debounce" type="text" #SwitchMapInput>
+<strong> {{SMinputValue}}</strong> Last output
+<!-- <button >values</button> -->
+<hr>
+<button (click)="concatMethod()">Show Todo and post From concat</button>
+<button (click)="mergeMethod()">Show Todo and post From Merge</button>
+<!-- <button (click)="SwitchMapMethod()">Show Todo and post From Switch map</button> -->
+
+
+<!-- {{showData }} -->
+<div *ngFor="let data of showData">
+    {{data | json}}
+</div>

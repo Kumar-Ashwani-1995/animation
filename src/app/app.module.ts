@@ -22,6 +22,14 @@ import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
 import { SharedModuleModule } from './shared/shared-module.module';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { RoutingComponentComponent } from './routing-component/routing-component.component';
+import { RouterChildComponent } from './routing-component/router-child/router-child.component';
+import { RouterChild2Component } from './routing-component/router-child2/router-child2.component';
+import { GuardedComponent } from './routing-component/guarded/guarded.component';
+import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.component';
+import { HttpRequestComponent } from './http-request/http-request.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CheckInterceptor } from './check.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,14 +49,22 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     PipesComponent,
     CurrencyConverterPipe,
     TemplateDrivenComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    RoutingComponentComponent,
+    RouterChildComponent,
+    RouterChild2Component,
+    GuardedComponent,
+    RxjsOperatorsComponent,
+    HttpRequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    
   ],
-  providers: [TransferService],
+  providers: [TransferService,
+    {provide:HTTP_INTERCEPTORS,useClass:CheckInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
