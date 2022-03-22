@@ -30,6 +30,11 @@ import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.componen
 import { HttpRequestComponent } from './http-request/http-request.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CheckInterceptor } from './check.interceptor';
+import { NgrxLearningComponent } from './ngrx-learning/ngrx-learning.component';
+import { StoreModule} from '@ngrx/store'
+import { transferArray } from './ngrx-store/transfer.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -55,12 +60,15 @@ import { CheckInterceptor } from './check.interceptor';
     RouterChild2Component,
     GuardedComponent,
     RxjsOperatorsComponent,
-    HttpRequestComponent
+    HttpRequestComponent,
+    NgrxLearningComponent
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({arrayOp:transferArray}),
     AppRoutingModule,
     SharedModuleModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     
   ],
   providers: [TransferService,

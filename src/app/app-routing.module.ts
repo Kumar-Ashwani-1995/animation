@@ -6,6 +6,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { HttpRequestComponent } from './http-request/http-request.component';
 import { LifeCycleHooksComponent } from './life-cycle-hooks/life-cycle-hooks.component';
 import { LoginGuard } from './login.guard';
+import { NgrxLearningComponent } from './ngrx-learning/ngrx-learning.component';
 import { ParentChildComunicationComponent } from './parent-child-comunication/parent-child-comunication.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"reactiveForm",component:ReactiveFormComponent},
   {path:"rxjs",component:RxjsOperatorsComponent},
   {path:"httpReq",component:HttpRequestComponent},
+  {path:"ngrx",component:NgrxLearningComponent},
   {path:"route",component:RoutingComponentComponent,
     children:[
       

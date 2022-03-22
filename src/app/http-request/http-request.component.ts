@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { catchError, observable, throwError } from 'rxjs';
@@ -25,7 +25,11 @@ export class HttpRequestComponent implements OnInit {
       'auth':"authentication",
       'type':"post call for 100 data"
     })
-    return this.http.get("https://jsonplaceholder.typicode.com/posts/",{headers}).pipe(
+    let params=new HttpParams({
+      fromObject:{
+      "abc":"abc"}
+    })
+    return this.http.get("https://jsonplaceholder.typicode.com/posts/",{headers,params}).pipe(
       catchError((err)=>{
         console.log(err.message);
         return throwError(()=>err.message);

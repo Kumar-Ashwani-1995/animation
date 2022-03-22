@@ -20,6 +20,9 @@ export class CheckInterceptor implements HttpInterceptor {
     request=request.clone({
       setHeaders:{
         'Int':"from Interceptor"
+      },
+      setParams:{
+        aabb:"aabbcc"
       }
     })
     return next.handle(request);
