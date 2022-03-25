@@ -1,10 +1,20 @@
 <p>ngrx-learning works!</p>
 <strong>
-    Value = {{onSet.arr}}
+    Value = {{(onSetValue.arr )}}
+    
 </strong>
+<div *ngIf="onSetValue.arr && post">
+    <div *ngFor="let po of onSetValue.arr">
+        {{post[po-1]| json}}
+        
+        <hr>
+    
+    </div>
+</div>
+
 <br>
 <input type="text" #arrValue (keyup.enter)="add_value_to_array(arrValue)">
 <button  (click)="add_value_to_array(arrValue)">Send Value</button>
 <br>
 <input type="text" #delValue (keyup.enter)="del_value_to_array(delValue)">
-<button  (click)="del_value_to_array(delValue)">Delete from position</button>
+<button (click)="del_value_to_array(delValue)">Delete from position</button>

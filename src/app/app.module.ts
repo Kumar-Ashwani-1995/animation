@@ -34,7 +34,9 @@ import { NgrxLearningComponent } from './ngrx-learning/ngrx-learning.component';
 import { StoreModule} from '@ngrx/store'
 import { transferArray } from './ngrx-store/transfer.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects'
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [
@@ -68,10 +70,11 @@ import { environment } from '../environments/environment'
     StoreModule.forRoot({arrayOp:transferArray}),
     AppRoutingModule,
     SharedModuleModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25}),
+    EffectsModule.forRoot([]),
     
   ],
-  providers: [TransferService,
+  providers: [TransferService,PostService,
     {provide:HTTP_INTERCEPTORS,useClass:CheckInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

@@ -11,10 +11,10 @@ export const transferArray = createReducer(initialState,
 
         return {...state}
     }),
-    on(TransferAction.AddArrayValue,(state,{arrValue})=>{
-        console.log(arrValue);
+    on(TransferAction.AddArrayValue,(state,action)=>{
+        console.log(action.arrValue);
         
-        return {...state,arr:[...state.arr,arrValue]}
+        return {...state,arr:[...state.arr,action.arrValue]}
     }),
     on(TransferAction.deleteArrayValue,(state,{position})=>{
         console.log(position);
